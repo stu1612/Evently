@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
+
+import { Button } from "../ui/button";
+import NavItems from "./NavItems";
+import MobileNav from "./MobileNav";
+
 export default function Header() {
   return (
     <header className="w-full border-b">
@@ -13,22 +19,22 @@ export default function Header() {
             alt="Evently logo"
           />
         </Link>
-        {/* <SignedIn>
+        <SignedIn>
           <nav className="md:flex-between hidden w-full max-w-xs">
             <NavItems />
           </nav>
-        </SignedIn> */}
+        </SignedIn>
 
         <div className="flex w-32 justify-end gap-3">
-          {/* <SignedIn>
+          <SignedIn>
             <UserButton afterSignOutUrl="/" />
             <MobileNav />
-          </SignedIn> */}
-          {/* <SignedOut>
-            <button className="btn ghost info pill md">
+          </SignedIn>
+          <SignedOut>
+            <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>
-            </button>
-          </SignedOut> */}
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </header>
