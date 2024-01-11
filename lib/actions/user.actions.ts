@@ -1,10 +1,11 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { CreateUserParams, UpdateUserParams } from "@/types";
 
 import { handleError } from "../utils";
 import { connectToDatabase } from "@/lib/database";
-import { revalidatePath } from "next/cache";
 
 // models
 import User from "../database/models/user.model";
